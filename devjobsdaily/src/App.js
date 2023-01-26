@@ -1,13 +1,12 @@
-import logo from './logo.svg';
 import './App.css';
-
+import Navbar from './navbar';
 function App() {
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          Edit <code>src/App.js</code> and oops to reload.
         </p>
         <a
           className="App-link"
@@ -17,6 +16,7 @@ function App() {
         >
           Learn React
         </a>
+        
       </header>
     </div>
   );
