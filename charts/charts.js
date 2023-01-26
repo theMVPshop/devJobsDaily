@@ -34,6 +34,7 @@ const arrays = [
   { day: 31, count: 28 },
 ];
 // when data is available i can grab it as an array like the one above
+// if i want the chart to be responsive the parent container has to be relativley positioned and dedicated to the chart only!
 
 (async function() {
     const data = arrays;
