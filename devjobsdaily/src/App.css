@@ -12,14 +12,15 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
-
-.App-header {
+.main {
   background-color: #282c34;
-  min-height: 100vh;
+  min-height: 70vh;
+  padding: 1%;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   font-size: calc(10px + 2vmin);
   color: white;
 }
@@ -28,11 +29,26 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.navbar{
+  background-color: yellow;
+}
+
+.bx{
+  height:fit-content;
+  width: fit-content;
+  padding: 1%;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+.bx1{
+  background-color: aqua;
+}
+.bx2{
+  background-color: red;
+}
+
+.bx3{
+  background-color: green;
 }
