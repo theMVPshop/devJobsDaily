@@ -1,10 +1,14 @@
 const puppeteer = require ('puppeteer-extra');
 const pluginStealth = require ('puppeteer-extra-plugin-stealth');
 const {executablePath, ElementHandle} = require ('puppeteer');
+const axios = require ('axios');
 
-const url = 'https://www.indeed.com/';
+const experience = 'ENTRY_LEVEL'; // MID_LEVEL, SENIOR_LEVEL
+const location = 'austin';
+const remote = ''; //attr%28DSQF7%29 <----add for remote
 const searchTerm = 'javascript';
-
+const last24H = '&fromage=1';
+const url = `https://www.indeed.com/jobs?q=${searchTerm}&l=${location}&sc=0kf%3A${remote}explvl%28${experience}%29%3B&radius=50${last24H}&vjk=2b9775de01edc6d0`;
 
 puppeteer.use(pluginStealth());
 
@@ -19,14 +23,6 @@ puppeteer.launch({ headless:false, executablePath: executablePath() }).then(asyn
     // Wait for security check 
     await page.waitForTimeout(1000); 
 
-    await page.type('#text-input-what', searchTerm); //type into search bar
-    await page.click('.yosegi-InlineWhatWhere-primaryButton'); // click search button
-    await page.waitForTimeout(1000)
-    await page.click('#filter-dateposted') //click date filter
-    await page.click('#filter-dateposted-menu > li:nth-child(1) > a') //click 24 hours on date filter
-    await page.waitForTimeout(1000)
-
-
     const getNumberOfJobs = await page.evaluate(() => {
         const element = document.querySelector(".jobsearch-JobCountAndSortPane-jobCount span").innerText;
         let jobsNumber = element.replace(/[^0-9]/g, '');
@@ -34,6 +30,11 @@ puppeteer.launch({ headless:false, executablePath: executablePath() }).then(asyn
 
     });
     console.log(getNumberOfJobs)
+
+    //axios request
+    // const res = await axios.post('', {
+    //     jobCount: getNumberOfJobs });
+    //     console.log(res.data)
     
 	await browser.close(); 
 });
