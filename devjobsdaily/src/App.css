@@ -1,28 +1,20 @@
 .App {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  background-color: #86a2b5;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
 .main {
-  background-color: #282c34;
-  min-height: 70vh;
-  padding: 1%;
+  background-color: #86a2b5;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-around;
   font-size: calc(10px + 2vmin);
-  color: white;
+  padding: 5%;
+
 }
 
 .App-link {
@@ -30,48 +22,51 @@
 }
 
 .navbar{
-  background-color: #F5C232;
-}
-
-.bm-burger-button {
-  position: fixed;
-  width: 36px;
-  height: 30px;
-  left: 36px;
-  top: 36px;
-}
-
-/* Color/shape of burger icon bars */
-.bm-burger-bars {
-  background: #373a47;
-}
-
-/* Color/shape of burger icon bars on hover*/
-.bm-burger-bars-hover {
-  background: #18a1dc;
-}
-
-.navbutton {
-  color: #f6f6eb;
-  background-color: #18a1dc;
+  background-color: #86a2b5
+  ;
+  margin-top: 0%;
 }
 
 .bx{
-  height:fit-content;
-  width: fit-content;
+
   padding: 1%;
   border-radius: 8px;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
 }
+
 .bx1{
-  background-color: aqua;
+  background-color: #f9e749;
+  height: 20vh;
+  width: fit-content;
+  display: flex;
 }
 .bx2{
-  background-color: red;
+  background-color: #18a1dc
+  ;
+  height: 50vh;
+  width: fit-content;
 }
 
 .bx3{
-  background-color: green;
+  background-color: #d64d49;
+  height: 20vh;
+  width: fit-content;
+  display: flex;
+}
+.navh1{
+  font-size: 200%;
+}
+
+.chart{
+  height:100%;
+  border-radius: 8px;
+}
+
+.factList{
+  height: 100%;
+  border-radius: 8px;
+}
+
+.trendLine{
+  height: 100%;
+  border-radius: 8px;
 }

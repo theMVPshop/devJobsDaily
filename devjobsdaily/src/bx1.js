@@ -1,10 +1,11 @@
+import trend from './fakeTrend.png';
+
 const Bx1 = () => {
   return ( 
     <section className="bx bx1">
-    <h1>Probs a graph or something</h1>
-          <div className="links">
-            <a href="./"> Home </a>
-          </div>
+    <img src={trend} 
+    className="trendLine" 
+    alt="trendline"/>
     </section>
    );
 }

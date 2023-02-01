@@ -1,31 +1,18 @@
-import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import Hamburger from './hamburger.js';
-
-
-
-
-
 const Navbar = () => {
   return ( 
-    
-    <Box sx={{ flexGrow: 1 }}>
-    <AppBar position="static">
-      <Toolbar>
- 
-    <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-          Menu
-        </Typography>
-        <button className='navbutton'>Login</button>
-      </Toolbar>
-    </AppBar>
-  </Box>
- 
-        
-  );
+    <nav className="navbar">
+          <h1 className="navh1"> Dev Jobs Daily </h1>
+          <div className="links">
+            <a href="./"> Link </a>
+            <a href="./"> Link1 </a>
+            <a href="./"> Link2 </a>
+            <a href="./"> Link3 </a>
+            <a href="./"> Link4 </a>
+          </div>
+
+
+    </nav>
+   );
 }
  
 export default Navbar;
