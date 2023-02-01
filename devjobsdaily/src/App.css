@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  display: flex;
+  flex-direction: column;
 }
 
 .App-logo {
@@ -7,19 +9,16 @@
   pointer-events: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
 
-.App-header {
+.main {
   background-color: #282c34;
-  min-height: 100vh;
+  min-height: 70vh;
+  padding: 1%;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   font-size: calc(10px + 2vmin);
   color: white;
 }
@@ -28,11 +27,37 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.navbar{
+  background-color: yellow;
+}
+
+.bx{
+
+  padding: 1%;
+  border-radius: 8px;
+}
+
+.bx1{
+  background-color: aqua;
+  height: 20vh;
+  width: 20vh;
+  display: flex;
+  font-size: 60%;
+
+}
+.bx2{
+  background-color: red;
+  height: 50vh;
+  width: 50vh;
+}
+
+.bx3{
+  background-color: green;
+  height: 20vh;
+  width: 20vh;
+  display: flex;
+  font-size: 60%;
+}
+.navh1{
+  font-size: 200%;
 }
