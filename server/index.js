@@ -13,7 +13,7 @@ app.get('/', (req, res) => {
   });
 
 app.get('/jobs', async (req, res) => {
-  const experience = 'ENTRY_LEVEL';
+  const experience = 'ENTRY_LEVEL'; //MID_LEVEL //SENIOR_LEVEL
   const location = 'austin';
   const remote = ''; //attr%28DSQF7%29 <----add for remote
   const searchTerm = 'javascript';
