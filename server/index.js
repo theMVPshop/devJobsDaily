@@ -33,7 +33,8 @@ app.get('/jobs', async (req, res) => {
   });
 
   await browser.close();
-  res.send({ jobs: getNumberOfJobs });
+  const timeStamp = new Date().toLocaleString();
+  res.send({ time: timeStamp, jobs: getNumberOfJobs });
 });
 
 app.listen(3000);
