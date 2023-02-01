@@ -20,7 +20,7 @@ app.get('/jobs', async (req, res) => {
   const last24H = '&fromage=1';
   const url = `https://www.indeed.com/jobs?q=${searchTerm}&l=${location}&sc=0kf%3A${remote}explvl%28${experience}%29%3B&radius=50${last24H}&vjk=2b9775de01edc6d0`;
 
-  const browser = await puppeteer.launch({headless: false, executablePath: executablePath()});
+  const browser = await puppeteer.launch({headless: true, executablePath: executablePath()});
   const page = await browser.newPage();
 
   await page.goto(url);
