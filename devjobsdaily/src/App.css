@@ -2,25 +2,19 @@
   text-align: center;
   display: flex;
   flex-direction: column;
+  background-color: #86a2b5;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
 
 .main {
-  background-color: #282c34;
-  min-height: 70vh;
-  padding: 1%;
+  background-color: #86a2b5;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-around;
   font-size: calc(10px + 2vmin);
-  color: white;
+  padding: 5%;
+
 }
 
 .App-link {
@@ -28,7 +22,9 @@
 }
 
 .navbar{
-  background-color: yellow;
+  background-color: #86a2b5
+  ;
+  margin-top: 0%;
 }
 
 .bx{
@@ -38,26 +34,39 @@
 }
 
 .bx1{
-  background-color: aqua;
+  background-color: #f9e749;
   height: 20vh;
-  width: 20vh;
+  width: fit-content;
   display: flex;
-  font-size: 60%;
-
 }
 .bx2{
-  background-color: red;
+  background-color: #18a1dc
+  ;
   height: 50vh;
-  width: 50vh;
+  width: fit-content;
 }
 
 .bx3{
-  background-color: green;
+  background-color: #d64d49;
   height: 20vh;
-  width: 20vh;
+  width: fit-content;
   display: flex;
-  font-size: 60%;
 }
 .navh1{
   font-size: 200%;
+}
+
+.chart{
+  height:100%;
+  border-radius: 8px;
+}
+
+.factList{
+  height: 100%;
+  border-radius: 8px;
+}
+
+.trendLine{
+  height: 100%;
+  border-radius: 8px;
 }
