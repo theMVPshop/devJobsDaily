@@ -36,7 +36,7 @@ async function getJobData(searchTerm, location, remote, experience, last24H) {
       await browser.close();
       return { numberOfJobs, timeStamp: new Date().toLocaleString() };
   } catch (error) {
-      console.error('Error scraping data');
+      console.error(`Error scraping data: ${error}`);
       throw error;
   }
 }
