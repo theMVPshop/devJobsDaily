@@ -2,25 +2,19 @@
   text-align: center;
   display: flex;
   flex-direction: column;
+  background-color: #86a2b5;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
 
 .main {
-  background-color: #282c34;
-  min-height: 70vh;
-  padding: 1%;
+  background-color: #86a2b5;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-around;
   font-size: calc(10px + 2vmin);
-  color: white;
+  padding: 5%;
+
 }
 
 .App-link {
@@ -28,7 +22,9 @@
 }
 
 .navbar{
-  background-color: yellow;
+  background-color: #86a2b5
+  ;
+  margin-top: 0%;
 }
 
 .bx{
@@ -38,26 +34,76 @@
 }
 
 .bx1{
-  background-color: aqua;
+  background-color: #f9e749;
   height: 20vh;
-  width: 20vh;
+  width: fit-content;
   display: flex;
-  font-size: 60%;
-
 }
 .bx2{
-  background-color: red;
+  background-color: #18a1dc
+  ;
   height: 50vh;
-  width: 50vh;
+  width: fit-content;
 }
 
 .bx3{
-  background-color: green;
+  background-color: #d64d49;
   height: 20vh;
-  width: 20vh;
+  width: fit-content;
   display: flex;
-  font-size: 60%;
 }
 .navh1{
   font-size: 200%;
 }
+
+.chart{
+  height:100%;
+  border-radius: 8px;
+}
+
+.factList{
+  height: 100%;
+  border-radius: 8px;
+}
+
+.trendLine{
+  height: 100%;
+  border-radius: 8px;
+}
+
+
+@media only screen and (max-width: 1380px) {
+  .App {
+    background-color: lightblue;
+    align-items: center;
+
+  }
+
+  .main{
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .bx1{
+    grid-row:2/3;
+    grid-column: 1/2;
+    padding:15px;
+
+
+  }
+  .bx2{
+    grid-row: 1/2;
+    grid-column: 1/4;
+    width: fit-content;
+    padding:15px;
+  }
+  .bx3{
+    grid-row:2/3;
+    grid-column: 3/4;
+    width:fit-content;
+    padding:15px;
+
+    
+  }
+}
+
