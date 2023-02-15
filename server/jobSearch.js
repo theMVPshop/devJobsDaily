@@ -114,32 +114,4 @@ fetch('https://learning.careers/version-test/api/1.1/obj/search', requestOptions
 
 
 //https://learning.careers/version-test/api/1.1/obj/jobData
-
-// entry level, austin,tx, no, javascript
-
-// var myHeaders = new Headers();
-// myHeaders.append("Authorization", "Bearer c73a9ca0db409a80227fe46e5a5e3899");
-
-// var formdata = new FormData();
-// formdata.append("jobValue", "22");
-// formdata.append("searchDate", "Jan 21, 2023 12:00 am\n");
-// formdata.append("searchId", "2");
-
-// var requestOptions = {
-//   method: 'POST',
-//   headers: myHeaders,
-//   body: formdata,
-//   redirect: 'follow'
-// };
-
-// const searchTerm = 'javascript';
-// const location = 'austin';
-// const remote = 'attr%28DSQF7%29'; 
-// const experience = 'ENTRY_LEVEL'; 
-// const last24H = '&fromage=1';
-//https://learning.careers/version-test/api/1.1/obj/search search address
-// const searchTerm = req.query.SEARCHTERM || 'javascript';
-// const location = req.query.LOCATION || 'austin';
-// const remote = req.query.REMOTE || 'attr%28DSQF7%29'; //use empty space for non-remote
-// const experience = req.query.EXPERIENCE || 'ENTRY_LEVEL'; //MID_LEVEL //SENIOR_LEVEL
-// const last24H = req.query.LAST24H || '&fromage=1';
+//https://learning.careers/version-test/api/1.1/obj/search
