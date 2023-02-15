@@ -18,24 +18,18 @@ const SearchForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="searchForm" onSubmit={handleSubmit}>
       <input
         type="text"
-        placeholder="Enter search term"
+        placeholder="Search Term"
         value={searchTerm}
         onChange={(event) => setSearchTerm(event.target.value)}
       />
       <input
         type="text"
-        placeholder="Enter location"
+        placeholder="Location"
         value={location}
         onChange={(event) => setLocation(event.target.value)}
-      />
-      <input
-        type="text"
-        placeholder="Enter remote"
-        value={remote}
-        onChange={(event) => setRemote(event.target.value)}
       />
       <input
         type="text"
@@ -49,6 +43,14 @@ const SearchForm = () => {
         value={last24H}
         onChange={(event) => setLast24H(event.target.value)}
       />
+       <div className="remoteContainer">
+      <label>Remote:</label>
+      <input
+        type="checkbox"
+        checked={remote}
+        onChange={(event) => setRemote(event.target.checked)}
+      />
+      </div>
       <button type="submit">Search</button>
       {results.map((result) => (
         <div key={result.id}>{result.jobValue} jobs found</div>
