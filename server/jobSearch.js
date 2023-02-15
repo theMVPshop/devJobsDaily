@@ -5,6 +5,7 @@ const dotenv = require('dotenv');
 const fetch = require('node-fetch');
 const Headers = fetch.Headers;
 const FormData = require('form-data');
+const { timeStamp } = require('console');
 
 
 puppeteer.use(pluginStealth());
@@ -12,7 +13,7 @@ const launchOptions = {headless: false, executablePath: executablePath()};
 
 async function getJobData(searchTerm, location, remote, experience, last24H) {
   const url = `https://www.indeed.com/jobs?q=${searchTerm}&l=${location}&sc=0kf%3A${remote}explvl%28${experience}%29%3B&radius=50${last24H}&vjk=2b9775de01edc6d0`;
-  console.log(url)
+
   try {
       const browser = await puppeteer.launch(launchOptions);
       const page = await browser.newPage();
@@ -56,13 +57,10 @@ const token = process.env.TOKEN;
 fetch('https://learning.careers/version-test/api/1.1/obj/search', requestOptions)
   .then(response => response.json())
   .then(results => {
-    console.log(results)
-    const searchData = JSON.parse(results);
+    const searchData = results.response.results;
     searchData.forEach((searchData) => {
       let searchTerm = searchData.term;
-      console.log(searchTerm)
       let location = searchData.location;
-      console.log(location)
       let remote = searchData.remote;
       let searchId = searchData.searchId;
 
@@ -91,7 +89,7 @@ fetch('https://learning.careers/version-test/api/1.1/obj/search', requestOptions
             redirect: 'follow'
           };
 
-          //fetch request to post jobData
+          // fetch request to post jobData
           fetch("https://learning.careers/version-test/api/1.1/obj/jobData", requestOptions)
             .then(response => response.text())
             .then(result => {
@@ -105,10 +103,10 @@ fetch('https://learning.careers/version-test/api/1.1/obj/search', requestOptions
           console.log('error', error);
         });
     })
-    .catch(error => {
-      console.log('error', error);
-  });
-})
+  })
+  .catch(error => {
+    console.log('error', error);
+});
   
   
 
