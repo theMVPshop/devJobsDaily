@@ -5,7 +5,6 @@ const dotenv = require('dotenv');
 const fetch = require('node-fetch');
 const Headers = fetch.Headers;
 const FormData = require('form-data');
-const { timeStamp } = require('console');
 
 
 puppeteer.use(pluginStealth());
