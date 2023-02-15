@@ -20,6 +20,7 @@
   "homepage": "https://github.com/theMVPshop/devJobsDaily#readme",
   "dependencies": {
     "chart.js": "^4.2.0",
+    "node-fetch": "^3.3.0",
     "parcel": "^2.8.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
