@@ -53,7 +53,7 @@ dotenv.config();
 const token = process.env.TOKEN;
 
 //fetch request for search data
-fetch('https://learning.careers/version-test/api/1.1/obj/searchData', requestOptions)
+fetch('https://learning.careers/version-test/api/1.1/obj/search', requestOptions)
   .then(response => response.json())
   .then(results => {
     console.log(results)
