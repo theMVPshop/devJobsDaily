@@ -1,8 +1,14 @@
+import femaleDev from './programmer_female.svg'
+import maleDev from './programmer_male.svg'
+
 const Navbar = () => {
   return ( 
     <nav className="navbar">
         <section className="bx bx4">
-          <h1 className="navh1"> Dev Jobs Daily </h1>
+        <img src={femaleDev}alt='' className='Dev'/>
+          <h1 className="navh1">
+             DevJobsDaily.com </h1>
+         <img src={maleDev}alt='' className='Dev'/>
         </section>
           {/* <div className="links">
             <a href="./"> Link </a>

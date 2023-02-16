@@ -1,8 +1,11 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:regular,bold,italic&subset=latin,latin-ext');
+
 .App {
   text-align: center;
   display: flex;
   flex-direction: column;
   background-color: #3A7CA5;
+  font-family: 'Bebas Neue';
 }
 
 .main {
@@ -58,10 +61,13 @@
   display: flex;
 }
 .bx4{
-  width: fit-content;
+  width: 60%;
   display: flex;
 }
 
+.Dev{
+  height: 8em;
+}
 .navh1{
   font-size: 200%;
   width: 100%;
@@ -78,8 +84,9 @@
 }
 
 .trendLine{
-  height: 100%;
-  border-radius: 8px;
+  /* background-color: #faa31c; */
+  filter: invert(75%) sepia(100%) saturate(1500%) hue-rotate(346deg) brightness(93%) contrast(96%);
+  border-radius: 55px;
 }
 
 
