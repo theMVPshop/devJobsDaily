@@ -8,18 +8,20 @@
     "eject": "react-scripts eject"
   },
   "dependencies": {
-    "react": "^16.10.2",
-    "react-dom": "^16.10.2",
-    "react-scripts": "3.2.0",
-    "axios": "^1.2.4",
+    "axios": "^1.3.2",
+    "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "node-modules": "^1.0.1",
     "puppeteer": "^19.5.2",
     "puppeteer-extra": "^3.3.4",
-    "puppeteer-extra-plugin-stealth": "^2.11.1"
+    "puppeteer-extra-plugin-stealth": "^2.11.1",
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2",
+    "react-scripts": "3.2.0"
   },
   "devDependencies": {
-    "react-cosmos": "^5.0.0-beta.15"
+    "react-cosmos": "^5.0.0-beta.15",
+    "web-vitals": "^3.1.1"
   },
   "browserslist": {
     "production": [
