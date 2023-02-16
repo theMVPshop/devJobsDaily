@@ -1,21 +1,14 @@
-const express = require('express');
-const app = express();
 const puppeteer = require('puppeteer-extra');
 const pluginStealth = require('puppeteer-extra-plugin-stealth');
 const {executablePath} = require('puppeteer');
 const dotenv = require('dotenv');
+const fetch = require('node-fetch');
+const Headers = fetch.Headers;
+const FormData = require('form-data');
 
-require('dotenv').config();
+
 puppeteer.use(pluginStealth());
-
-const launchOptions = {headless: true, executablePath: executablePath()};
-
-app.use(express.json());
-const port = process.env.PORT || 3000;
-
-app.get('/', (req, res) => {
-    res.send('Welcome to the job scraper');
-});
+const launchOptions = {headless: false, executablePath: executablePath()};
 
 async function getJobData(searchTerm, location, remote, experience, last24H) {
   const url = `https://www.indeed.com/jobs?q=${searchTerm}&l=${location}&sc=0kf%3A${remote}explvl%28${experience}%29%3B&radius=50${last24H}&vjk=2b9775de01edc6d0`;
@@ -34,47 +27,88 @@ async function getJobData(searchTerm, location, remote, experience, last24H) {
       });
     
       await browser.close();
-      return { numberOfJobs, timeStamp: new Date().toLocaleString() };
+      return { numberOfJobs, timeStamp: new Date().toLocaleString('en-US', {
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric',
+        hour: 'numeric',
+        minute: 'numeric',
+        hour12: true
+      }) };
   } catch (error) {
-      console.error(`Error scraping data: ${error}`);
+      console.log(`Error scraping data: ${error}`);
       throw error;
   }
 }
 
-app.get('/jobData', async (req, res) => {
-  const resultArray = [];
+const requestOptions = {
+  method: 'GET',
+  redirect: 'follow'
+};
 
-  const searchTerm = req.query.searchTerm || 'javascript';
-  const location = req.query.location || 'austin';
-  const remote = process.env.REMOTE || 'attr%28DSQF7%29'; //use empty space for non-remote
-  const experience = process.env.EXPERIENCE || 'ENTRY_LEVEL'; //MID_LEVEL //SENIOR_LEVEL
-  const last24H = req.query.last24H || '&fromage=1';
+const experience = 'ENTRY_LEVEL'; //MID_LEVEL SEINOR_LEVEL
+const last24H = '&fromage=1';
 
-  const { numberOfJobs, timeStamp } = await getJobData(searchTerm, location, remote, experience, last24H);
+dotenv.config();
+const token = process.env.TOKEN;
 
-  const uniqueIdentifier = 1;
-  const data = {
-    ModifiedDate: timeStamp,
-    CreatedDate: timeStamp,
-    CreatedBy: 'admin_user_learningcareers_test',
-    jobValue: numberOfJobs,
-    searchId: 1,
-    searchDate: timeStamp,
-    id: uniqueIdentifier
-  };
+//fetch request for search data
+fetch('https://learning.careers/version-test/api/1.1/obj/search', requestOptions)
+  .then(response => response.json())
+  .then(results => {
+    const searchData = results.response.results;
+    searchData.forEach((searchData) => {
+      let searchTerm = searchData.term;
+      let location = searchData.location;
+      let remote = searchData.remote;
+      let searchId = searchData.searchId;
 
-  resultArray.push(data);
+      if(remote === true) {
+        remote = 'attr%28DSQF7%29'; //this is the text needed for remote a job search
+      }else {
+        remote = '';
+      }
 
-  res.send({
-    response: {
-      results: resultArray,
-    }
-  });
+      // calls scraper function
+      getJobData(searchTerm, location, remote, experience, last24H)
+        .then(jobData => {
+          const timeStamp = jobData.timeStamp;
+          const myHeaders = new Headers();
+          myHeaders.append("Authorization", `Bearer ${token}`);
+
+          const formdata = new FormData();
+          formdata.append("jobValue", jobData.numberOfJobs);
+          formdata.append("searchDate", timeStamp);
+          formdata.append("searchId", searchId);
+
+          const requestOptions = {
+            method: 'POST',
+            headers: myHeaders,
+            body: formdata,
+            redirect: 'follow'
+          };
+
+          // fetch request to post jobData
+          fetch("https://learning.careers/version-test/api/1.1/obj/jobData", requestOptions)
+            .then(response => response.text())
+            .then(result => {
+              console.log(result);
+            })
+            .catch(error => {
+              console.log('error', error);
+            });
+        })
+        .catch(error => {
+          console.log('error', error);
+        });
+    })
+  })
+  .catch(error => {
+    console.log('error', error);
 });
+  
+  
 
-app.listen(port, () => {
-  console.log(`Web server is listening on port ${port}!`);
-});
-  
-  
-  
+
+//https://learning.careers/version-test/api/1.1/obj/jobData
+//https://learning.careers/version-test/api/1.1/obj/search
