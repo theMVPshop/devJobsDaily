@@ -69,46 +69,44 @@ fetch('https://learning.careers/version-test/api/1.1/obj/search', requestOptions
         remote = '';
       }
 
-      // calls scraper function
-      getJobData(searchTerm, location, remote, experience, last24H)
-        .then(jobData => {
-          const timeStamp = jobData.timeStamp;
-          const myHeaders = new Headers();
-          myHeaders.append("Authorization", `Bearer ${token}`);
+      try {
+        // calls scraper function
+        getJobData(searchTerm, location, remote, experience, last24H)
+          .then(jobData => {
+            const timeStamp = jobData.timeStamp;
+            const myHeaders = new Headers();
+            myHeaders.append("Authorization", `Bearer ${token}`);
 
-          const formdata = new FormData();
-          formdata.append("jobValue", jobData.numberOfJobs);
-          formdata.append("searchDate", timeStamp);
-          formdata.append("searchId", searchId);
+            const formdata = new FormData();
+            formdata.append("jobValue", jobData.numberOfJobs);
+            formdata.append("searchDate", timeStamp);
+            formdata.append("searchId", searchId);
 
-          const requestOptions = {
-            method: 'POST',
-            headers: myHeaders,
-            body: formdata,
-            redirect: 'follow'
-          };
+            const requestOptions = {
+              method: 'POST',
+              headers: myHeaders,
+              body: formdata,
+              redirect: 'follow'
+            };
 
-          // fetch request to post jobData
-          fetch("https://learning.careers/version-test/api/1.1/obj/jobData", requestOptions)
-            .then(response => response.text())
-            .then(result => {
-              console.log(result);
-            })
-            .catch(error => {
-              console.log('error', error);
-            });
-        })
-        .catch(error => {
-          console.log('error', error);
-        });
-    })
+            // fetch request to post jobData
+            fetch("https://learning.careers/version-test/api/1.1/obj/jobData", requestOptions)
+              .then(response => response.text())
+              .then(result => {
+                console.log(result);
+              })
+              .catch(error => {
+                console.log('Error posting jobData:', error);
+              });
+          })
+          .catch(error => {
+            console.log('Error getting jobData:', error);
+          });
+      } catch (error) {
+        console.log('Unexpected error:', error);
+      }
+    });
   })
   .catch(error => {
-    console.log('error', error);
+    console.log('Error fetching search data:', error);
 });
-  
-  
-
-
-//https://learning.careers/version-test/api/1.1/obj/jobData
-//https://learning.careers/version-test/api/1.1/obj/search
