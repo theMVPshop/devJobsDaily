@@ -1,4 +1,4 @@
-import trend from './fakeTrend.png';
+import trend from './pointer.png';
 
 const Bx1 = () => {
   return ( 

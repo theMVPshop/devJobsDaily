@@ -3,7 +3,7 @@ import Navbar from './navbar';
 import Bx1 from './bx1';
 import Bx2 from './bx2';
 import Bx3 from './bx3';
-import Bxbottom from './bxbottom';
+// import Bxbottom from './bxbottom';
 
 function App() {
   return (
@@ -20,10 +20,10 @@ function App() {
         <Bx3/>
 
       </main>
-
+{/* 
     <section>
       <Bxbottom/>
-    </section>
+    </section> */}
     </div>
   );
 }

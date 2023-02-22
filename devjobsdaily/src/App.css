@@ -1,12 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Didact+Gothic&family=Roboto:wght@100&display=swap');
+
 .App {
   text-align: center;
   display: flex;
   flex-direction: column;
-  background-color: #86a2b5;
+  background-color: #3A7CA5;
+  font-family: 'Bebas Neue';
 }
 
 .main {
-  background-color: #86a2b5;
+  background-color:#3A7CA5;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -14,6 +17,7 @@
   justify-content: space-around;
   font-size: calc(10px + 2vmin);
   padding: 5%;
+  padding-top: 10px;
 
 }
 
@@ -22,38 +26,78 @@
 }
 
 .navbar{
-  background-color: #86a2b5
+  background-color: #3A7CA5
   ;
-  margin-top: 0%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  size: 50pt;
+  margin-top: 20px;
+  margin-bottom: 10px;
 }
 
-.bx{
 
+
+.bx{
+  background-color: #D9DCD6;
   padding: 1%;
   border-radius: 8px;
 }
 
 .bx1{
-  background-color: #f9e749;
+  background-color: #D9DCD6;
   height: 20vh;
   width: fit-content;
   display: flex;
 }
 .bx2{
-  background-color: #18a1dc
+  background-color: #D9DCD6
   ;
-  height: 50vh;
+  height: fit-content;
   width: fit-content;
+  padding:2%;
+ 
+}
+
+.drops{
+  display: flex;
+  justify-content: space-evenly;
+  margin: 10px;
+  margin-bottom:30px ;
 }
 
 .bx3{
-  background-color: #d64d49;
-  height: 20vh;
-  width: fit-content;
+  background-color: #D9DCD6;
+  height: fit-content;
+  
+}
+
+.topmark{
+  margin-bottom: 2px;
+  margin-top: 0%;
+}
+
+.mark{
+  margin-top: 5px;
+}
+
+.marks{
+  margin-top: 3px;
+  margin-bottom: 0%;
+
+}
+
+.bx4{
+  width: 60%;
   display: flex;
+}
+
+.Dev{
+  height: 8em;
 }
 .navh1{
   font-size: 200%;
+  width: 100%;
 }
 
 .chart{
@@ -67,14 +111,15 @@
 }
 
 .trendLine{
-  height: 100%;
-  border-radius: 8px;
+  /* background-color: #faa31c; */
+  filter: invert(75%) sepia(100%) saturate(1500%) hue-rotate(346deg) brightness(93%) contrast(96%);
+  border-radius: 55px;
 }
 
 
-@media only screen and (max-width: 1380px) {
+@media only screen and (max-width: 1400px) {
   .App {
-    background-color: lightblue;
+    background-color: #3A7CA5;
     align-items: center;
 
   }
@@ -83,27 +128,46 @@
     display: grid;
     grid-template-rows: 1fr 1fr;
     grid-template-columns: 1fr 1fr 1fr;
+    place-items: start;
+
+  }
+
+  .navbar{
+    display: block;
   }
   .bx1{
     grid-row:2/3;
     grid-column: 1/2;
     padding:15px;
-
+    width: 90%;
+    margin-top: 10%;
+    
 
   }
   .bx2{
     grid-row: 1/2;
     grid-column: 1/4;
-    width: fit-content;
+    width: 96%;
     padding:15px;
   }
+
+  
+
   .bx3{
     grid-row:2/3;
     grid-column: 3/4;
-    width:fit-content;
     padding:15px;
-
+    width: 90%;
+    margin-top: 10%;
     
+  }
+  .bx4{
+    width: fit-content;
+    display: flex;
+  }
+
+  .chart{
+    width: 100%;
   }
 }
 

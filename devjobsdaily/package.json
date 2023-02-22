@@ -12,8 +12,14 @@
     "react": "^18.2.0",
     "react-burger-menu": "^3.0.9",
     "react-dom": "^18.2.0",
-    "react-scripts": "5.0.1",
-    "web-vitals": "^2.1.4"
+    "react-scripts": "^2.1.3",
+    "web-vitals": "^2.1.4",
+    "axios": "^1.2.4",
+    "express": "^4.18.2",
+    "node-modules": "^1.0.1",
+    "puppeteer": "^19.5.2",
+    "puppeteer-extra": "^3.3.4",
+    "puppeteer-extra-plugin-stealth": "^2.11.1"
   },
   "scripts": {
     "start": "react-scripts start",
