@@ -34,6 +34,10 @@ const arrays = [
   { day: 31, count: 28 },
 ];
 // when data is available i can grab it as an array like the one above
+// if i want the chart to be responsive the parent container has to be relativley positioned and dedicated to the chart only!
+// tps://learning.careers/version-test/api/1.1/obj/jobData?constraints=[%20{%20"key":%20"searchId",%20"constraint_type":%20"equals",%20"value":%20"3"%20}%20,{"key":"searchDate","constraint_type":"greater%20than","value":"2022-11-15T06:00:00.000Z"}]
+// https://learning.careers/version-test/api/1.1/obj/jobData?constraints=[{%22key%22:%22searchId%22,%22constraint_type%22:%22equals%22,%22value%22:%223%22},{%22key%22:%22searchDate%22,%22constraint_type%22:%22greater%20than%22,%22value%22:%222022-11-15T06:00:00.000Z%22}]
+//
 
 (async function() {
     const data = arrays;
