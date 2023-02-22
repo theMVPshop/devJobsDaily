@@ -17,7 +17,7 @@
     "puppeteer-extra-plugin-stealth": "^2.11.1",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
-    "react-scripts": "3.2.0"
+    "react-scripts": "5.0.1"
   },
   "devDependencies": {
     "react-cosmos": "^5.0.0-beta.15",

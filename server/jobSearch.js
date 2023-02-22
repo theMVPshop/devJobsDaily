@@ -46,7 +46,6 @@ const requestOptions = {
   redirect: 'follow'
 };
 
-const experience = 'ENTRY_LEVEL'; //MID_LEVEL SEINOR_LEVEL
 const last24H = '&fromage=1';
 
 dotenv.config();
@@ -61,7 +60,16 @@ fetch('https://learning.careers/version-test/api/1.1/obj/search', requestOptions
       let searchTerm = searchData.term;
       let location = searchData.location;
       let remote = searchData.remote;
+      let experience = searchData.experience;
       let searchId = searchData.searchId;
+
+      if(experience === 'entryLevel') {
+        experience = 'ENTRY_LEVEL';
+      } else if(experience === 'midLevel') {
+        experience = 'MID_LEVEL';
+      } else {
+        experience = 'SENIOR_LEVEL';
+      }
 
       if(remote === true) {
         remote = 'attr%28DSQF7%29'; //this is the text needed for remote a job search
