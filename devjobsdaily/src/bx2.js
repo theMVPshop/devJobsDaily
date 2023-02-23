@@ -29,12 +29,7 @@ const Bx2 = () => {
   <option value="Senior-Level">Senior-Level</option>
 </select>
 </section>
-     {/* <!-- <div style="width: 500px;"><canvas id="dimensions"></canvas></div><br/> -->
-     <div style="width: 800px;"><canvas id="acquisitions"></canvas></div>
-
-     {/* <!-- <script type="module" src="dimensions.js"></script> --> */}
-     {/* <script type="module" src="charts.js"></script> */}
-    </section>
+</section>
    );
 }
  
