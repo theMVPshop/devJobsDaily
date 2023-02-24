@@ -111,10 +111,10 @@ input {
 
 .saved-search-list {
   list-style: none;
-  padding: 0;
-  margin: 0;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  padding: 30px;
+  margin: 30px;
+  border: 30px solid #ccc;
+  border-radius: 30px;
   display: table;
   width: 100%;
   table-layout: fixed;
@@ -212,38 +212,16 @@ input {
   padding: 20px;
 }
 
-/* .saved-search-buttons {
-  display: table-cell;
-  padding: 10px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-} */
-
-/* .saved-search-buttons button{
-  width: 100%;
-  padding: 10px;
-  margin-top: 10px;
-  background-color: #2196f3;
-  color: #fff;
-  font-size: 16px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.saved-search-buttons button:hover {
-  background-color: #1e88e5;
-} */
-
 .saved-search-list li button {
   width: 80px;
   padding: 5px;
+  border: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
   margin-right: 10px;
   background-color: #2196f3;
   color: #fff;
   font-size: 16px;
-  border: none;
   border-radius: 5px;
   cursor: pointer;
 }
