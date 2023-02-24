@@ -16,7 +16,7 @@ function Login() {
   async function handleSubmit(event) {
     event.preventDefault();
 
-    // Add validation here to ensure that the user entered both a username and password.
+    // Add validation here
 
     try {
       const response = await axios.post('/api/authenticate', {

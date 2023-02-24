@@ -6,8 +6,10 @@ const SavedSearchList = ({ savedSearches, handleEditSearch, handleRemoveSearch }
       {savedSearches.map((search, index) => (
         <li key={index} className='saved-search-item'>
           Search Term: {search.searchTerm}, Location: {search.location}, Remote: {search.remote ? 'Yes' : 'No'}, Experience: {search.experience}
-          <button onClick={() => handleEditSearch(index)}>Edit</button>
-          <button onClick={() => handleRemoveSearch(index)}>Remove</button>
+          <div className='saved-search-buttons'>
+            <button onClick={() => handleEditSearch(index)}>Edit</button>
+            <button onClick={() => handleRemoveSearch(index)}>Remove</button>
+          </div>
         </li>
       ))}
     </ul>
