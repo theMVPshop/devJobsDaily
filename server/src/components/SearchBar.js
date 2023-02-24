@@ -8,9 +8,11 @@ class SearchBar extends React.Component {
       term: '',
       experience: 'entryLevel',
       remote: true,
-      location: '',
+      location: ''
     };
   }
+
+  
 
   handleTermChange = (event) => {
     this.setState({ term: event.target.value });
@@ -21,7 +23,7 @@ class SearchBar extends React.Component {
   };
 
   handleRemoteChange = (event) => {
-    this.setState({ remote: JSON.parse(event.target.value) });
+    this.setState({ remote: event.target.value === "true" });
   };
 
   handleLocationChange = (event) => {
@@ -30,11 +32,65 @@ class SearchBar extends React.Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    console.log('Search Term:', this.state.term);
-    console.log('Experience:', this.state.experience);
-    console.log('Remote:', this.state.remote);
-    console.log('Location:', this.state.location);
+    const TOKEN = process.env.REACT_APP_TOKEN;
+    const { term, experience, remote, location } = this.state;
+  
+    fetch(`https://learning.careers/version-test/api/1.1/obj/search?term=${term}&experience=${experience}&remote=${remote}&location=${location}`, {
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${TOKEN}`
+      }
+    })
+    .then(response => response.json())
+    .then(data => {
+      if (data.response && data.response.results.length) {
+        let count = data.response.results.length;
+        const searchId = data.response.results.length + 1;
+  
+        fetch('https://learning.careers/version-test/api/1.1/obj/search', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${TOKEN}`
+          },
+          body: JSON.stringify({
+            term,
+            experience,
+            remote,
+            location,
+            searchId
+          })
+        })
+        .then(response => response.json())
+        .then(data => {
+          console.log(data)
+          const result = {
+            "experience": experience,
+            "remote": remote,
+            "term": term,
+            "location": location,
+            "searchId": searchId
+          };
+          if (data.response && data.response.results) {
+            data.response.results.push(result);
+            count = count + 1;
+            console.log('New response:', data.response);
+          } else {
+            console.error('Error: invalid response format');
+          }
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        });
+      } else {
+        console.error('Error: invalid response format');
+      }
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
   };
+  
 
   render() {
     return (
@@ -54,8 +110,8 @@ class SearchBar extends React.Component {
         <label>
           Remote:
           <select value={this.state.remote} onChange={this.handleRemoteChange}>
-            <option value={true}>Remote</option>
-            <option value={false}>Not remote</option>
+            <option value="true">Remote</option>
+            <option value="false">Not remote</option>
           </select>
         </label>
         <label>
