@@ -49,7 +49,7 @@ const requestOptions = {
 const last24H = '&fromage=1';
 
 dotenv.config();
-const token = process.env.TOKEN;
+const TOKEN = process.env.TOKEN;
 
 //fetch request for search data
 fetch('https://learning.careers/version-test/api/1.1/obj/search', requestOptions)
@@ -83,7 +83,7 @@ fetch('https://learning.careers/version-test/api/1.1/obj/search', requestOptions
           .then(jobData => {
             const timeStamp = jobData.timeStamp;
             const myHeaders = new Headers();
-            myHeaders.append("Authorization", `Bearer ${token}`);
+            myHeaders.append("Authorization", `Bearer ${TOKEN}`);
 
             const formdata = new FormData();
             formdata.append("jobValue", jobData.numberOfJobs);
