@@ -1,5 +1,6 @@
 import femaleDev from './programmer_female.svg'
 import maleDev from './programmer_male.svg'
+import React, { Component }  from 'react';
 
 const Navbar = () => {
   return ( 
