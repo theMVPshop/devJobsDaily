@@ -50,6 +50,7 @@
   width: fit-content;
   display: flex;
 }
+
 .bx2{
   background-color: #D9DCD6
   ;
@@ -114,6 +115,55 @@
   /* background-color: #faa31c; */
   filter: invert(75%) sepia(100%) saturate(1500%) hue-rotate(346deg) brightness(93%) contrast(96%);
   border-radius: 55px;
+}
+
+#trendBox {
+  width:340px;
+  height:400px;
+  background: white;
+  border-radius: 15px;
+  position: absolute;
+  top: 230px;
+  left:40px;
+}
+
+#trendTitle {
+  font-size: 60px;
+  position: absolute;
+  transform: rotate(-15deg);
+}
+
+#trendBox img {
+  width:80%;
+  margin:auto;
+  top:140px;
+  left:30px;
+  position: absolute;
+  transform: rotate(0deg);
+  
+  transform-origin: 42% 50%;
+}
+
+#trendData {
+  background: white;
+  border-radius: 200px;
+  font-size: 20px;
+  text-align:center;
+  width:160px;
+  height:160px;
+  top:158px;
+  left:45px;
+  position: absolute;
+  padding:20px;
+}
+
+#percent {
+/*   width:60%; */
+  font-size: 80px;
+  padding-top:130px;
+}
+
+#delta {
 }
 
 
