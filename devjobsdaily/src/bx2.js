@@ -1,5 +1,7 @@
 // import chart from '../public/charts/mainchart.html';
 
+import React, { Component }  from 'react';
+
 const Bx2 = () => {
   return ( 
 <section className="bx bx2">

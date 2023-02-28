@@ -1,4 +1,6 @@
 
+import React, { Component }  from 'react';
+
 const Bx3 = () => {
   return ( 
     <section className="bx bx3">
