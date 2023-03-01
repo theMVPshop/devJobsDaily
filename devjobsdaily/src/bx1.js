@@ -1,4 +1,4 @@
-import trend from './pointer.png';
+// import trend from './pointer.png';
 import React, { Component }  from 'react';
 
 const Bx1 = () => {
