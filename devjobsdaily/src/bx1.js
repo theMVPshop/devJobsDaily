@@ -1,5 +1,5 @@
 // import trend from './pointer.png';
-import React, { Component }  from 'react';
+// import React, { Component }  from 'react';
 
 const Bx1 = () => {
   return ( 
